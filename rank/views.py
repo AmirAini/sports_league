@@ -23,14 +23,14 @@ def uploadCsv(request):
                     values = [value.strip() for value in values if value.strip()]
                     
                     team_1_name, team_1_score, team_2_name, team_2_score = values
-                    team_1, _ = Team.objects.get_or_create(name=team_1_name)
-                    team_2, _ = Team.objects.get_or_create(name=team_2_name)
+                    team_1_name, _ = Team.objects.get_or_create(name=team_1_name)
+                    team_2_name, _ = Team.objects.get_or_create(name=team_2_name)
                     
                     # Create records
                     Match.objects.create(
-                        team_1=team_1, 
+                        team_1=team_1_name, 
                         team_1_score=team_1_score,
-                        team_2=team_2, 
+                        team_2=team_2_name, 
                         team_2_score=team_2_score
                     )
 
