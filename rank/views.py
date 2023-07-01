@@ -63,8 +63,8 @@ def overview(request):
 
         # Push to object
         teamScores[team] = totalPoints
-            
-    # sortedScores  = teams.order_by('-totalPoints','name')
+        
+    teamScores = {team: points for team, points in sorted(teamScores.items(), key=lambda x: (-x[1], x[0].name))}
 
     return render(request, 'rank/overview.html', {'team_score': teamScores})
 
