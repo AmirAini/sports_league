@@ -1,0 +1,11 @@
+<!-- rank/upload_csv.html -->
+<h2>Upload CSV File</h2>
+<h3>{{error}}</h3>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Upload</button>
+</form>
+
+<button onclick="location.href='{% url 'match_list' %}'">View Matches</button>
+<button onclick="location.href='{% url 'overview' %}'">View Ranking</button>

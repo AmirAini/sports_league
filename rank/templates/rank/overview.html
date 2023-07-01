@@ -1,0 +1,23 @@
+<h2>Ranking Table</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Ranking</th>
+            <th>Team</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for team, points in team_score.items %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ team.name }}</td>
+            <td>{{ points }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<button onclick="location.href='{% url 'match_list' %}'">View Matches</button>
+<button onclick="location.href='{% url 'upload_csv' %}'">Upload New Matches (.csv)</button>

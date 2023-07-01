@@ -1,0 +1,31 @@
+<!-- rank/match_list.html -->
+<h2>Matches</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Home Team</th>
+            <th>Score</th>
+            <th>Away Team</th>
+            <th>Score</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for match in matches %}
+        <tr>
+            <td>{{ match.id }}</td>
+            <td>{{ match.team_1.name }}</td>
+            <td>{{ match.team_1_score }}</td>
+            <td>{{ match.team_2.name }}</td>
+            <td>{{ match.team_2_score }}</td>
+            <td>
+                <button class="edit-btn" onclick="location.href='{% url 'edit_match' match.id %}'">Edit</button>
+                <button class="delete-btn" onclick="location.href='{% url 'delete_match' match.id %}'">Delete</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<button onclick="location.href='{% url 'overview' %}'">View Ranking</button>

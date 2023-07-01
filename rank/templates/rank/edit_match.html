@@ -1,0 +1,28 @@
+<h2>Edit Match</h2>
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+<form method="POST" action="">
+    {% csrf_token %}
+    <label for="team_1">Team 1:</label>
+    <select id="team_1" name="team_1">
+        {% for team in teams %}
+        <option value="{{ team.id }}" {% if match.team_1_id == team.id %}selected{% endif %}>{{ team.name }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <label for="team_2">Team 2:</label>
+    <select id="team_2" name="team_2">
+        {% for team in teams %}
+        <option value="{{ team.id }}" {% if match.team_2_id == team.id %}selected{% endif %}>{{ team.name }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <label for="team_1_score">Team 1 Score:</label>
+    <input type="number" id="team_1_score" name="team_1_score" value="{{ match.team_1_score }}">
+    <br>
+    <label for="team_2_score">Team 2 Score:</label>
+    <input type="number" id="team_2_score" name="team_2_score" value="{{ match.team_2_score }}">
+    <br>
+    <input type="submit" value="Save">
+</form>
