@@ -11,7 +11,7 @@ Steps to get it running.
 5. Run the project on local machine (make sure port 80 is not used)
    <br>docker run -p 8000:8000 leagueapp:1.0
 6. First time visit, there's no data. Try uploading a csv file (template given below)
-   [Download Sample CSV](https://drive.google.com/file/d/1BmCn46fWBqYdOOQwUKqycgTBdUm7AUks/view?usp=sharing)
+   <br>[Download Sample CSV](https://drive.google.com/file/d/1BmCn46fWBqYdOOQwUKqycgTBdUm7AUks/view?usp=sharing)
 
    ##todo:
 8. Run test
