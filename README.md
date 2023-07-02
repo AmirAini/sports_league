@@ -1,4 +1,10 @@
 <h1>Sports League</h1>
+<h3>Description</h3>
+
+<p>This project is a Sports League application that provides three main views: uploading a CSV file, viewing the ranking, and editing matches.</p>
+<p>When you first start the application, the view ranking and match pages will be empty, as no data will be available.</p>
+<p>To begin using the application, you need to upload a CSV file. A sample CSV file is provided below.</p>
+<p>The points is given by: winning is 3 points, and drawing is 1 point.</p>
 
 <h2>Steps to Get It Running</h2>
 
@@ -23,8 +29,7 @@
     <code>docker run -p 8000:8000 leagueapp:1.0</code></li>
   
   <li>Open your web browser and go to the following URL:<br>
-    <code>http://localhost:8000/</code></li>
-  
+    <code>http://localhost:8000/</code></li>  
   <li>On the first visit, there won't be any data. You can try uploading a CSV file. <a href="https://drive.google.com/file/d/1BmCn46fWBqYdOOQwUKqycgTBdUm7AUks/view?usp=sharing">Download Sample CSV</a></li>
 </ol>
 
