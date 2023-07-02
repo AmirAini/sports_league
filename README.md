@@ -34,8 +34,7 @@
   <li>Run tests:</li>
 </ol>
 
-<pre><code>docker exec -it &lt;container_id&gt; bash
-python manage.py test
+<pre><code>docker exec -it &lt;container_id&gt; python manage.py test
 </code></pre>
 
 <p><em>Note: Replace &lt;container_id&gt; in step 8 with the actual container ID you get when running the Docker container.</em></p>
