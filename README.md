@@ -6,7 +6,7 @@
   <li>Clone the repository:<br>
     <code>git clone https://github.com/AmirAini/sports_league.git</code></li>
 <li>
-   TO install docker on local machine:<br>
+   To install docker on local machine:<br>
    <a href="https://docs.docker.com/engine/install/">Docker Installation Guide</a></li>
 </li>
   
