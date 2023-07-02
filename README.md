@@ -35,11 +35,11 @@
 
 <h2>Additional Steps:</h2>
 
-<ol start="8">
+<ol start="9">
   <li>Run tests:</li>
 </ol>
 
 <pre><code>docker exec -it &lt;container_id&gt; python manage.py test
 </code></pre>
 
-<p><em>Note: Replace &lt;container_id&gt; in step 8 with the actual container ID you get when running the Docker container.</em></p>
+<p><em>Note: Replace &lt;container_id&gt; with the actual container ID you get when running the Docker container.</em></p>
