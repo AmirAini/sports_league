@@ -38,7 +38,7 @@ def uploadCsv(request):
             
             except Exception as e:
                 error=("Error occurred:" + str(e))
-                return render(request, 'rank/upload_csv.html', {'form': form, 'error': error})
+                return render(request, 'rank/upload_csv.html', {'form': form, 'error': "Please make sure the file follows the sample template and a csv file."})
 
 def overview(request):
     teams = Team.objects.all()
@@ -102,13 +102,17 @@ def edit(request, match_id):
         if request.method == 'POST':
             team_1_id = request.POST.get('team_1')
             team_2_id = request.POST.get('team_2')
-            team_1_score = request.POST.get('team_1_score')
-            team_2_score = request.POST.get('team_2_score')
+            team_1_score = int(request.POST.get('team_1_score'))
+            team_2_score = int(request.POST.get('team_2_score'))
 
             # Validate team IDs and scores
             if team_1_id == team_2_id:
                 teams = Team.objects.all()
-                return render(request, 'rank/edit_match.html', {'match': match, 'error': 'Team 1 and Team 2 must be different.','teams':teams})
+                return render(request, 'rank/edit_match.html', {'match': match, 'error': 'Error: Team 1 and Team 2 must be different.','teams':teams})
+            
+            if team_2_score < 0 or team_1_score < 0:
+                teams = Team.objects.all()
+                return render(request, 'rank/edit_match.html', {'match': match, 'error': 'Error: Score given cannot be negative','teams':teams})
 
             try:
                 team_1 = Team.objects.get(id=team_1_id)

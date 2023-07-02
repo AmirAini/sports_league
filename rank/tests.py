@@ -74,3 +74,36 @@ class TestScoreApp(TestCase):
         self.assertEqual(updated_match.team_2, self.team_2)
         self.assertEqual(updated_match.team_1_score, 3)
         self.assertEqual(updated_match.team_2_score, 3)
+    
+
+    def test_user_cannot_use_same_team(self):
+        payload = {
+            "team_1": self.team_1.id,
+            "team_2": self.team_1.id,
+            "team_1_score": 3,
+            "team_2_score": 3,
+        }
+        self.client.post(reverse("edit_match", args=[self.match.id]), data=payload)
+        
+        # Retrieve the match from the database
+        original_match = Match.objects.get(id=self.match.id)
+        self.assertEqual(original_match.team_1, self.team_1)
+        self.assertEqual(original_match.team_2, self.team_2)
+        self.assertEqual(original_match.team_1_score, self.match.team_1_score)
+        self.assertEqual(original_match.team_2_score, self.match.team_2_score)
+
+    def test_user_cannot_enter_negative_score(self):
+        payload = {
+            "team_1": self.team_1.id,
+            "team_2": self.team_1.id,
+            "team_1_score": -3,
+            "team_2_score": 3,
+        }
+        self.client.post(reverse("edit_match", args=[self.match.id]), data=payload)
+        
+        # Retrieve the match from the database
+        original_match = Match.objects.get(id=self.match.id)
+        self.assertEqual(original_match.team_1, self.team_1)
+        self.assertEqual(original_match.team_2, self.team_2)
+        self.assertEqual(original_match.team_1_score, self.match.team_1_score)
+        self.assertEqual(original_match.team_2_score, self.match.team_2_score)
